@@ -10,6 +10,8 @@ class Footer extends React.Component {
 
             <footer>
                 <p>Made by Mohammad Abu Farweh</p>
+                <p>Made by Mohammad Abu Farweh</p>
+
             </footer>
 
         )
