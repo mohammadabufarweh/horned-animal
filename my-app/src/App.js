@@ -1,24 +1,55 @@
-import './App.css';
 import React from 'react';
-import Header from './components/header';
-import Main from './components/main';
-import Footer from './components/footer';
+import Header from './component/header';
+import Footer from './component/footer';
+import Main from './component/main';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SelectedBeast from './component/SelectedBeast';
+import images from './component/data.json';
 
 
 
-class App extends React.Component{
-  render (){
+class App extends React.Component {
 
-    return(
-      <div>
-        <Header/>
-      
-        <Main/>
-      <Footer/>
-
-      </div>
-    )
+  constructor(props) {
+  
+    super(props);
+    this.state = {
+  
+      horndArray: images, show: false,
+  
+    }
   }
-}
-
-export default App;
+  
+  falseState = ()=> {
+    this.setState({show:false})
+  }
+  trueState = ()=> {
+    this.setState({show:true})
+  }
+  
+  
+  
+  
+  
+    render() {
+      return (
+        
+        <div>
+          <Header />
+  
+          <Main horndArray = {this.state.horndArray} trueState={this.trueState}/>
+  
+          <Footer />
+          <SelectedBeast show={this.state.show}
+                  falseState={this.falseState}
+                    title={images.title}
+                    images={images.images}
+                  
+                     description={images.description} 
+                     />
+                     
+        </div>
+      )
+    }
+  }
+  export default App;
